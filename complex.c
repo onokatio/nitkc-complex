@@ -50,10 +50,12 @@ Complex Complex_div(Complex *complexA, Complex *complexB){
 
 	Complex numerator = Complex_mul(complexB,complexA_bar);
 	Complex denominator = Complex_mul(complexA,complexA_bar);
+	print(&numerator);
+	print(&denominator);
 
 	Complex complexC;
-	complexC.real = ;
-	complexC.imaginaly = (complexA->real * complexB->imaginaly) + (complexA->imaginaly * complexB->real);
+	complexC.real = numerator.real / denominator.real;
+	complexC.imaginaly = numerator.imaginaly / denominator.real;
 	return complexC;
 }
 
@@ -74,9 +76,8 @@ int main(void){
 	print(&complexA);
 	print(&complexB);
 	Complex complexC = Complex_add(&complexA, &complexB);
-	print(&complexC);
 	Complex complexD = Complex_sub(&complexA, &complexB);
-	print(&complexD);
 	Complex complexE = Complex_mul(&complexA, &complexB);
-	print(&complexE);
+	Complex complexF = Complex_div(&complexA, &complexB);
+	print(&complexF);
 }
